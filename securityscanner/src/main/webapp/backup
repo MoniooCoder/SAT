@@ -1,0 +1,32 @@
+
+  <%    URL url2;
+
+                                try {
+                                    // get URL content
+
+                                    String a = "http://192.168.40.139/browse/RPR-45?jql=";
+                                    url2 = new URL(a);
+                                    URLConnection conn = url2.openConnection();
+
+                                    // open the stream and put it into BufferedReader
+                                    BufferedReader br = new BufferedReader(
+                                            new InputStreamReader(conn.getInputStream()));
+
+                                    String inputLine;
+                                    while ((inputLine = br.readLine()) != null) {
+                                        System.out.println(inputLine);
+                                    }
+                                    br.close();
+
+                                } catch (MalformedURLException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            %>
+<dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-core</artifactId>
+            <version>3.0.0</version>
+            <type>jar</type>    
+        </dependency>
